@@ -1,0 +1,41 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/bot/dev/constrained-icp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/home/bot/anaconda3/bin/ninja" "cmTC_33c80"
+[1/2] Building C object CMakeFiles/cmTC_33c80.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_33c80
+FAILED: cmTC_33c80 
+: && /usr/bin/gcc-6     CMakeFiles/cmTC_33c80.dir/CheckSymbolExists.c.o  -o cmTC_33c80  -rdynamic && :
+CMakeFiles/cmTC_33c80.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+File /home/bot/dev/constrained-icp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/bot/dev/constrained-icp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/home/bot/anaconda3/bin/ninja" "cmTC_9ddd8"
+[1/2] Building C object CMakeFiles/cmTC_9ddd8.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_9ddd8
+FAILED: cmTC_9ddd8 
+: && /usr/bin/gcc-6  -DCHECK_FUNCTION_EXISTS=pthread_create   CMakeFiles/cmTC_9ddd8.dir/CheckFunctionExists.c.o  -o cmTC_9ddd8  -rdynamic -lpthreads && :
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
