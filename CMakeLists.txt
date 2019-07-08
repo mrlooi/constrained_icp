@@ -12,6 +12,7 @@ include_directories(
     ${EIGEN3_INCLUDE_DIR}
     ${PCL_INCLUDE_DIRS}
     ${CERES_INCLUDE_DIRS}
+    "include"
     )
 # link_directories must be before add_executable
 link_directories(
@@ -25,7 +26,7 @@ add_definitions(${PCL_DEFINITIONS})
 include(CTest)
 enable_testing()
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp)
 target_link_libraries(${PROJECT_NAME} ${Open3D_LIBRARIES} ${CERES_LIBRARIES})
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
