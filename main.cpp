@@ -187,7 +187,9 @@ int main(int, char**) {
     for (int i = 0; i < poses.size(); ++i)
     {
         std::shared_ptr<open3d::PointCloud> pcd = std::make_shared<open3d::PointCloud>();
-        open3d::ReadPointCloud("../data/pcd_" + std::to_string(i) + ".pcd", *pcd);
+        std::string pcd_file = "../data/pcd_" + std::to_string(i) + ".pcd";
+        printf("Reading %s...\n", pcd_file.c_str());
+        open3d::ReadPointCloud(pcd_file, *pcd);
 
         crop_cloud_by_depth(*pcd, MAX_DEPTH);
         remove_cloud_outliers(*pcd, 30, VOXEL_SIZE, 1);
