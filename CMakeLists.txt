@@ -3,7 +3,7 @@ project(constrained_icp VERSION 0.1.0)
 set(CMAKE_CXX_STANDARD 11)
 
 find_package(Eigen3 3.3 REQUIRED)
-find_package(PCL 1.3 REQUIRED COMPONENTS common filters)
+find_package(PCL 1.8 REQUIRED COMPONENTS common filters)
 find_package(Open3D REQUIRED HINTS ${CMAKE_INSTALL_PREFIX}/lib/CMake)
 find_package(Ceres REQUIRED)
 
