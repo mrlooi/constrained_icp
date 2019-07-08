@@ -1,6 +1,6 @@
 # Point Cloud Registration
 
-Registrate and merge multiple noisy point cloud from kinect into a single consistent model.
+Register and merge multiple noisy point clouds from kinectv2 via a constrained icp model.
 C++ and Python version available.
 
 
@@ -16,8 +16,6 @@ Use CMake to build.
 `python3 py/main.py`
 
 ## Constrained ICP
-I implement a constrained ICP to improve the merging result.
-
 Constrained ICP (CICP) is a modified point-to-plane ICP which fix the rotation axis and translation plane.
 
 In the current implementation, the point cloud can only rotate around z-axis and translate on the x-y plane.
